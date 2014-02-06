@@ -3,6 +3,8 @@
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
+	$(".nameClick").click(doThisOnNameClick);
+	$(".photoClick").click(doThisOnPhotoClick);
 })
 
 /*
@@ -10,6 +12,18 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+}
+
+function doThisOnNameClick(e) {
+	e.preventDefault();
+	var currName = $(this).text();
+	var newAnagram = anagrammedName(currName);
+	$(this).text(newAnagram);
+}
+
+function doThisOnPhotoClick(e) {
+	console.log("click photo");
+	e.preventDefault();
 }
 
 function anagrammedName(name) {
